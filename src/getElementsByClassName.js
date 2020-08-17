@@ -6,5 +6,32 @@
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className
 ) {
-  // your code here
+
+  var elementArray = [];
+
+  // make function checking each element
+  // conditional statement checking classList
+  // conditonal checking childNodes
+
+
+
+  var checkClass = function(element) {
+
+    if (element.classList && element.classList.contains(className)) {
+      elementArray.push(element);
+    }
+
+
+    if (element.childNodes) {
+      var nodes = element.childNodes;
+      nodes.forEach(checkClass);
+    }
+
+
+  };
+
+
+  checkClass(document.body);
+  return elementArray;
+
 };
